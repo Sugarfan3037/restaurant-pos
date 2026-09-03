@@ -1,0 +1,102 @@
+digraph ER {
+  graph [rankdir=LR, bgcolor="#F8F2E8", pad="0.35", nodesep="0.6", ranksep="1.0", splines=ortho];
+  node [shape=plain, fontname="Arial"];
+  edge [color="#8A6648", penwidth=1.6, arrowsize=0.7, fontname="Arial", fontsize=9];
+
+  employee [label=<
+  <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5" COLOR="#8A6648" BGCOLOR="#FFFDF9">
+  <TR><TD BGCOLOR="#D9B98C"><B>employee</B></TD></TR>
+  <TR><TD ALIGN="LEFT">PK id : BIGINT</TD></TR>
+  <TR><TD ALIGN="LEFT">username : VARCHAR(50) UNIQUE</TD></TR>
+  <TR><TD ALIGN="LEFT">password : VARCHAR(255)</TD></TR>
+  <TR><TD ALIGN="LEFT">name : VARCHAR(50)</TD></TR>
+  <TR><TD ALIGN="LEFT">role : VARCHAR(20)</TD></TR>
+  <TR><TD ALIGN="LEFT">active : BOOLEAN</TD></TR>
+  <TR><TD ALIGN="LEFT">created_at : DATETIME</TD></TR>
+  <TR><TD ALIGN="LEFT">updated_at : DATETIME</TD></TR>
+  </TABLE>>];
+
+  restaurant_table [label=<
+  <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5" COLOR="#8A6648" BGCOLOR="#FFFDF9">
+  <TR><TD BGCOLOR="#D9B98C"><B>restaurant_table</B></TD></TR>
+  <TR><TD ALIGN="LEFT">PK id : BIGINT</TD></TR>
+  <TR><TD ALIGN="LEFT">table_number : INT UNIQUE</TD></TR>
+  <TR><TD ALIGN="LEFT">capacity : INT</TD></TR>
+  <TR><TD ALIGN="LEFT">status : VARCHAR(20)</TD></TR>
+  <TR><TD ALIGN="LEFT">created_at : DATETIME</TD></TR>
+  <TR><TD ALIGN="LEFT">updated_at : DATETIME</TD></TR>
+  </TABLE>>];
+
+  menu_item [label=<
+  <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5" COLOR="#8A6648" BGCOLOR="#FFFDF9">
+  <TR><TD BGCOLOR="#D9B98C"><B>menu_item</B></TD></TR>
+  <TR><TD ALIGN="LEFT">PK id : BIGINT</TD></TR>
+  <TR><TD ALIGN="LEFT">name : VARCHAR(100)</TD></TR>
+  <TR><TD ALIGN="LEFT">category : VARCHAR(30)</TD></TR>
+  <TR><TD ALIGN="LEFT">price : DECIMAL(10,2)</TD></TR>
+  <TR><TD ALIGN="LEFT">available : BOOLEAN</TD></TR>
+  <TR><TD ALIGN="LEFT">description : VARCHAR(255)</TD></TR>
+  <TR><TD ALIGN="LEFT">created_at : DATETIME</TD></TR>
+  <TR><TD ALIGN="LEFT">updated_at : DATETIME</TD></TR>
+  </TABLE>>];
+
+  orders [label=<
+  <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5" COLOR="#8A6648" BGCOLOR="#FFFDF9">
+  <TR><TD BGCOLOR="#D9B98C"><B>orders</B></TD></TR>
+  <TR><TD ALIGN="LEFT">PK id : BIGINT</TD></TR>
+  <TR><TD ALIGN="LEFT">FK table_id : BIGINT</TD></TR>
+  <TR><TD ALIGN="LEFT">FK employee_id : BIGINT</TD></TR>
+  <TR><TD ALIGN="LEFT">status : VARCHAR(20)</TD></TR>
+  <TR><TD ALIGN="LEFT">total_amount : DECIMAL(10,2)</TD></TR>
+  <TR><TD ALIGN="LEFT">created_at : DATETIME</TD></TR>
+  <TR><TD ALIGN="LEFT">updated_at : DATETIME</TD></TR>
+  <TR><TD ALIGN="LEFT">paid_at : DATETIME</TD></TR>
+  </TABLE>>];
+
+  order_item [label=<
+  <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5" COLOR="#8A6648" BGCOLOR="#FFFDF9">
+  <TR><TD BGCOLOR="#D9B98C"><B>order_item</B></TD></TR>
+  <TR><TD ALIGN="LEFT">PK id : BIGINT</TD></TR>
+  <TR><TD ALIGN="LEFT">FK order_id : BIGINT</TD></TR>
+  <TR><TD ALIGN="LEFT">FK menu_item_id : BIGINT</TD></TR>
+  <TR><TD ALIGN="LEFT">quantity : INT</TD></TR>
+  <TR><TD ALIGN="LEFT">unit_price : DECIMAL(10,2)</TD></TR>
+  <TR><TD ALIGN="LEFT">subtotal : DECIMAL(10,2)</TD></TR>
+  <TR><TD ALIGN="LEFT">sugar_level : VARCHAR(20)</TD></TR>
+  <TR><TD ALIGN="LEFT">ice_level : VARCHAR(20)</TD></TR>
+  <TR><TD ALIGN="LEFT">note : VARCHAR(255)</TD></TR>
+  </TABLE>>];
+
+  payment [label=<
+  <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5" COLOR="#8A6648" BGCOLOR="#FFFDF9">
+  <TR><TD BGCOLOR="#D9B98C"><B>payment</B></TD></TR>
+  <TR><TD ALIGN="LEFT">PK id : BIGINT</TD></TR>
+  <TR><TD ALIGN="LEFT">FK order_id : BIGINT UNIQUE</TD></TR>
+  <TR><TD ALIGN="LEFT">FK employee_id : BIGINT</TD></TR>
+  <TR><TD ALIGN="LEFT">payment_method : VARCHAR(30)</TD></TR>
+  <TR><TD ALIGN="LEFT">amount : DECIMAL(10,2)</TD></TR>
+  <TR><TD ALIGN="LEFT">paid_at : DATETIME</TD></TR>
+  </TABLE>>];
+
+  daily_closing [label=<
+  <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5" COLOR="#8A6648" BGCOLOR="#FFFDF9">
+  <TR><TD BGCOLOR="#D9B98C"><B>daily_closing</B></TD></TR>
+  <TR><TD ALIGN="LEFT">PK id : BIGINT</TD></TR>
+  <TR><TD ALIGN="LEFT">closing_date : DATE UNIQUE</TD></TR>
+  <TR><TD ALIGN="LEFT">total_orders : INT</TD></TR>
+  <TR><TD ALIGN="LEFT">total_revenue : DECIMAL(12,2)</TD></TR>
+  <TR><TD ALIGN="LEFT">cash_amount : DECIMAL(12,2)</TD></TR>
+  <TR><TD ALIGN="LEFT">card_amount : DECIMAL(12,2)</TD></TR>
+  <TR><TD ALIGN="LEFT">other_amount : DECIMAL(12,2)</TD></TR>
+  <TR><TD ALIGN="LEFT">FK employee_id : BIGINT</TD></TR>
+  <TR><TD ALIGN="LEFT">closed_at : DATETIME</TD></TR>
+  </TABLE>>];
+
+  employee -> orders [label="1 : N"];
+  restaurant_table -> orders [label="1 : N"];
+  orders -> order_item [label="1 : N"];
+  menu_item -> order_item [label="1 : N"];
+  orders -> payment [label="1 : 0..1"];
+  employee -> payment [label="1 : N"];
+  employee -> daily_closing [label="1 : N"];
+}

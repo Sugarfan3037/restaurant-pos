@@ -1,0 +1,728 @@
+/* =========================
+   Restaurant POS Global UI
+   ========================= */
+
+:root{
+    --pos-bg:#f4f6f9;
+    --pos-card:#fff;
+    --pos-dark:#212529;
+    --pos-border:#dee2e6;
+    --pos-muted:#6c757d;
+    --pos-radius:8px;
+    --pos-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+/* =========================
+   全域
+   ========================= */
+
+html,body,#root{
+    min-height:100%;
+}
+
+body{
+    margin:0;
+    background:var(--pos-bg);
+    color:#212529;
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "Microsoft JhengHei",
+        "Noto Sans TC",
+        Arial,
+        sans-serif;
+    font-size:14px;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+a{
+    text-decoration:none;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-weight:600;
+}
+
+h2{
+    font-size:1.6rem;
+}
+
+.container-fluid{
+    max-width:1800px;
+}
+
+/* =========================
+   Navbar
+   ========================= */
+
+.navbar{
+    min-height:52px;
+    padding-top:.35rem;
+    padding-bottom:.35rem;
+}
+
+.navbar-brand{
+    font-size:1.15rem;
+    letter-spacing:.5px;
+}
+
+.navbar .nav-link{
+    padding:.45rem .7rem!important;
+    border-radius:5px;
+    margin-right:2px;
+    transition:.15s;
+}
+
+.navbar .nav-link:hover{
+    background:rgba(255,255,255,.10);
+}
+
+.navbar .nav-link.active{
+    background:rgba(255,255,255,.18);
+    color:#fff!important;
+}
+
+.navbar .badge{
+    font-size:.72rem;
+}
+
+/* =========================
+   Card
+   ========================= */
+
+.card{
+    border:1px solid var(--pos-border);
+    border-radius:var(--pos-radius);
+    box-shadow:var(--pos-shadow);
+}
+
+.card-header{
+    padding:.5rem .8rem;
+    font-size:.95rem;
+    font-weight:600;
+}
+
+.card-body{
+    padding:.8rem;
+}
+
+.card-footer{
+    padding:.45rem .8rem;
+    background:#fafafa;
+}
+
+/* =========================
+   Table
+   ========================= */
+
+.table{
+    margin-bottom:0;
+    font-size:.88rem;
+}
+
+.table>:not(caption)>*>*{
+    padding:.45rem .55rem;
+    vertical-align:middle;
+}
+
+.table thead th{
+    white-space:nowrap;
+    font-weight:600;
+    background:#f8f9fa;
+}
+
+.table-hover tbody tr:hover{
+    background:#f4f7fa;
+}
+
+.table-responsive{
+    border-radius:0 0 var(--pos-radius) var(--pos-radius);
+}
+
+/* =========================
+   Button
+   ========================= */
+
+.btn{
+    border-radius:6px;
+    font-weight:500;
+}
+
+.btn-sm{
+    padding:.25rem .55rem;
+    font-size:.8rem;
+}
+
+.btn-primary,
+.btn-success,
+.btn-danger,
+.btn-warning,
+.btn-secondary,
+.btn-info{
+    box-shadow:0 1px 2px rgba(0,0,0,.08);
+}
+
+.btn:disabled{
+    cursor:not-allowed;
+    opacity:.6;
+}
+
+/* =========================
+   Form
+   ========================= */
+
+.form-control,
+.form-select{
+    min-height:36px;
+    border-radius:6px;
+    font-size:.9rem;
+}
+
+.form-control:focus,
+.form-select:focus{
+    box-shadow:0 0 0 .15rem rgba(13,110,253,.15);
+}
+
+.form-label{
+    margin-bottom:.25rem;
+    font-size:.85rem;
+    font-weight:500;
+}
+
+textarea.form-control{
+    min-height:70px;
+}
+
+/* =========================
+   Alert
+   ========================= */
+
+.alert{
+    border-radius:6px;
+    margin-bottom:.6rem;
+    font-size:.88rem;
+}
+
+.alert.py-2{
+    padding-top:.45rem!important;
+    padding-bottom:.45rem!important;
+}
+
+/* =========================
+   Badge
+   ========================= */
+
+.badge{
+    font-weight:500;
+}
+
+/* =========================
+   標題區
+   ========================= */
+
+.pos-page-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    margin-bottom:12px;
+}
+
+.pos-page-header h2{
+    margin:0;
+}
+
+.pos-page-subtitle{
+    color:var(--pos-muted);
+    font-size:.82rem;
+}
+
+/* =========================
+   統計卡
+   ========================= */
+
+.pos-stat-card{
+    background:#fff;
+    border:1px solid var(--pos-border);
+    border-radius:var(--pos-radius);
+    padding:.65rem .8rem;
+    min-height:76px;
+    box-shadow:var(--pos-shadow);
+}
+
+.pos-stat-label{
+    color:var(--pos-muted);
+    font-size:.8rem;
+}
+
+.pos-stat-value{
+    margin-top:2px;
+    font-size:1.6rem;
+    font-weight:700;
+    line-height:1.2;
+}
+
+/* =========================
+   狀態顏色
+   ========================= */
+
+.status-open{
+    color:#0d6efd;
+}
+
+.status-paid{
+    color:#198754;
+}
+
+.status-cancelled{
+    color:#dc3545;
+}
+
+.status-available{
+    color:#198754;
+}
+
+.status-occupied{
+    color:#dc3545;
+}
+
+/* =========================
+   POS 密集區塊
+   ========================= */
+
+.pos-section{
+    margin-bottom:12px;
+}
+
+.pos-compact{
+    padding:.65rem!important;
+}
+
+.pos-compact-row{
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+
+.pos-money{
+    font-weight:700;
+    color:#198754;
+}
+
+.pos-muted{
+    color:var(--pos-muted);
+}
+
+/* =========================
+   訂單卡
+   ========================= */
+
+.order-card{
+    transition:.15s;
+}
+
+.order-card:hover{
+    transform:translateY(-1px);
+    box-shadow:0 4px 10px rgba(0,0,0,.10);
+}
+
+.order-card.selected{
+    border:2px solid #0d6efd;
+}
+
+/* =========================
+   桌位按鈕
+   ========================= */
+
+.table-button{
+    min-height:58px;
+    border-radius:7px;
+    font-weight:600;
+}
+
+.table-button.available{
+    background:#fff;
+    border:1px solid #198754;
+    color:#198754;
+}
+
+.table-button.occupied{
+    background:#dc3545;
+    border:1px solid #dc3545;
+    color:#fff;
+}
+
+.table-button:hover{
+    filter:brightness(.97);
+}
+
+/* =========================
+   菜單項目
+   ========================= */
+
+.menu-item-card{
+    transition:.15s;
+    height:100%;
+}
+
+.menu-item-card:hover{
+    transform:translateY(-1px);
+    box-shadow:0 4px 10px rgba(0,0,0,.10);
+}
+
+.menu-item-price{
+    font-size:1.1rem;
+    font-weight:700;
+    color:#198754;
+}
+
+/* =========================
+   Modal
+   ========================= */
+
+.modal-content{
+    border-radius:9px;
+    border:none;
+}
+
+.modal-header{
+    padding:.65rem .9rem;
+}
+
+.modal-body{
+    padding:.85rem;
+}
+
+.modal-footer{
+    padding:.55rem .85rem;
+}
+
+/* =========================
+   捲軸
+   ========================= */
+
+::-webkit-scrollbar{
+    width:8px;
+    height:8px;
+}
+
+::-webkit-scrollbar-track{
+    background:#eee;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#adb5bd;
+    border-radius:10px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#868e96;
+}
+
+/* =========================
+   手機 / 平板
+   ========================= */
+
+@media(max-width:991.98px){
+    .container-fluid{
+        padding-left:12px!important;
+        padding-right:12px!important;
+    }
+
+    .navbar .nav-link{
+        margin:.1rem 0;
+    }
+
+    .pos-page-header{
+        align-items:flex-start;
+    }
+}
+
+@media(max-width:767.98px){
+    body{
+        font-size:13px;
+    }
+
+    h2{
+        font-size:1.35rem;
+    }
+
+    .card-header{
+        padding:.45rem .65rem;
+    }
+
+    .card-body{
+        padding:.65rem;
+    }
+
+    .table>:not(caption)>*>*{
+        padding:.4rem;
+    }
+
+    .pos-stat-value{
+        font-size:1.35rem;
+    }
+
+    .pos-page-header{
+        flex-direction:column;
+    }
+
+    .pos-page-header>div:last-child,
+    .pos-page-header>button{
+        width:100%;
+    }
+}
+
+@media(max-width:575.98px){
+    .btn{
+        font-size:.82rem;
+    }
+
+    .navbar-brand{
+        font-size:1rem;
+    }
+
+    .table{
+        font-size:.8rem;
+    }
+}
+
+/* ===== 6-15-3 FINAL UNIFIED OVERRIDES ===== */
+body{background:var(--pos-bg)!important;}
+.container-fluid.px-4.mt-3.mb-5{padding-top:.1rem;}
+.pos-page-header{padding:.1rem 0;}
+.pos-page-header h2{font-size:1.5rem;line-height:1.2;}
+.card{overflow:hidden;}
+.card.shadow-sm{box-shadow:var(--pos-shadow)!important;}
+.card-header.bg-primary,.card-header.bg-success,.card-header.bg-secondary,.card-header.bg-dark{border-bottom:0;}
+.table-responsive>.table{margin-bottom:0;}
+.table-bordered>:not(caption)>*>*{border-color:#e2e6ea;}
+.btn-warning{color:#212529;}
+.form-control,.form-select,.btn{min-height:34px;}
+.btn-sm{min-height:30px;}
+.row.g-3{--bs-gutter-x:.75rem;--bs-gutter-y:.75rem;}
+.row.g-2{--bs-gutter-x:.55rem;--bs-gutter-y:.55rem;}
+.alert-success,.alert-danger,.alert-info,.alert-warning{box-shadow:0 1px 3px rgba(0,0,0,.04);}
+.navbar .container-fluid{max-width:1800px;}
+@media(max-width:767.98px){
+  .container-fluid.px-4.mt-3.mb-5{padding-left:10px!important;padding-right:10px!important;margin-top:.65rem!important;}
+  .card-body{padding:.6rem;}
+  .pos-page-header{margin-bottom:9px;}
+}
+
+/* =========================
+   6-15-4 全站統一補強
+   ========================= */
+
+.container-fluid.px-4.mt-3.mb-5{
+    width:100%;
+    padding-left:1rem!important;
+    padding-right:1rem!important;
+}
+
+.pos-page-header{
+    min-height:46px;
+    padding-bottom:8px;
+    border-bottom:1px solid var(--pos-border);
+}
+
+.pos-page-header h2{
+    font-size:1.5rem;
+    line-height:1.2;
+}
+
+.card + .card{
+    margin-top:12px;
+}
+
+.card-header.bg-info{
+    color:#052c65;
+}
+
+.table td,.table th{
+    vertical-align:middle;
+}
+
+.table .btn + .btn{
+    margin-left:4px;
+}
+
+.form-control,.form-select,.btn{
+    min-height:34px;
+}
+
+.alert{
+    box-shadow:0 1px 3px rgba(0,0,0,.04);
+}
+
+@media(max-width:767.98px){
+    .container-fluid.px-4.mt-3.mb-5{
+        padding-left:.75rem!important;
+        padding-right:.75rem!important;
+    }
+
+    .pos-page-header{
+        min-height:auto;
+    }
+
+    .pos-page-header .d-flex{
+        width:100%;
+        flex-wrap:wrap;
+    }
+
+    .pos-page-header .btn{
+        width:100%;
+    }
+}
+
+/* =========================
+   Warm Wood Theme - 7-2 UI Palette
+   參考暖米白、淺木質、柔和日光風格
+   ========================= */
+:root{
+    --pos-bg:#efe4d2;
+    --pos-card:rgba(255,252,247,.94);
+    --pos-dark:#5f4936;
+    --pos-border:#d9c5aa;
+    --pos-muted:#8a7561;
+    --pos-radius:10px;
+    --pos-shadow:0 4px 14px rgba(98,72,45,.12);
+    --pos-wood:#b98b5e;
+    --pos-wood-dark:#7c5a3d;
+    --pos-cream:#fffaf2;
+    --pos-sand:#ead8bd;
+    --pos-green:#718265;
+    --pos-danger:#a96658;
+    --pos-warning:#c99a55;
+}
+
+html,body,#root{min-height:100%;}
+body{
+    background:
+        linear-gradient(rgba(246,239,229,.78),rgba(246,239,229,.82)),
+        url("../assets/pos-warm-bg.png") center center / cover fixed no-repeat!important;
+    color:#4e4033;
+}
+
+/* 頁面內容保持清楚，同時保留背景質感 */
+.container-fluid.px-4.mt-3.mb-5{
+    background:rgba(248,242,233,.28);
+    border-radius:14px;
+    backdrop-filter:blur(1.5px);
+}
+
+/* Navbar：深木色 */
+.navbar.bg-dark,
+.navbar{
+    background:linear-gradient(90deg,#5f4936,#7a5c40)!important;
+    box-shadow:0 3px 12px rgba(70,48,30,.18)!important;
+}
+.navbar .nav-link{color:#f6eee4!important;}
+.navbar .nav-link:hover{background:rgba(255,248,238,.12);}
+.navbar .nav-link.active{background:rgba(255,248,238,.22);color:#fff!important;}
+
+/* 卡片：暖白玻璃感 */
+.card,
+.pos-stat-card{
+    background:var(--pos-card);
+    border-color:var(--pos-border);
+    box-shadow:var(--pos-shadow);
+    backdrop-filter:blur(3px);
+}
+.card-header{border-bottom-color:rgba(124,90,61,.12);}
+.card-footer{background:#f6eee3;}
+
+/* 統一 Bootstrap header 顏色成暖木色系 */
+.card-header.bg-dark,
+.card-header.bg-primary,
+.card-header.bg-secondary,
+.card-header.bg-info{
+    background:linear-gradient(90deg,#7c5a3d,#a77b53)!important;
+    color:#fff!important;
+}
+.card-header.bg-success{background:linear-gradient(90deg,#6f7f62,#879978)!important;color:#fff!important;}
+.card-header.bg-warning{background:linear-gradient(90deg,#d8ad69,#e6c58c)!important;color:#4b3826!important;}
+.card-header.bg-danger{background:linear-gradient(90deg,#955d52,#b77768)!important;color:#fff!important;}
+
+/* Page Header */
+.pos-page-header{border-bottom-color:#d6c1a6;}
+.pos-page-header h2{color:#5a4432;}
+.pos-page-subtitle,.pos-muted{color:var(--pos-muted)!important;}
+
+/* 表格 */
+.table{--bs-table-bg:rgba(255,252,247,.86);--bs-table-striped-bg:rgba(234,216,189,.28);--bs-table-hover-bg:rgba(218,193,160,.28);color:#4e4033;}
+.table thead th,.table-light{background:#eadcc9!important;color:#5a4432!important;}
+.table-bordered>:not(caption)>*>*{border-color:#ddcdb9;}
+
+/* Form */
+.form-control,.form-select{
+    background-color:rgba(255,253,249,.94);
+    border-color:#cfb99c;
+    color:#4e4033;
+}
+.form-control:focus,.form-select:focus{
+    border-color:#b4875e;
+    box-shadow:0 0 0 .15rem rgba(180,135,94,.18);
+}
+.form-label{color:#695441;}
+
+/* Buttons：保留語意但降低刺眼度 */
+.btn-primary{background:#8b6648;border-color:#8b6648;}
+.btn-primary:hover{background:#76543a;border-color:#76543a;}
+.btn-success{background:#718265;border-color:#718265;}
+.btn-success:hover{background:#617157;border-color:#617157;}
+.btn-danger{background:#a96658;border-color:#a96658;}
+.btn-danger:hover{background:#91564a;border-color:#91564a;}
+.btn-warning{background:#d7aa66;border-color:#d7aa66;color:#453321;}
+.btn-warning:hover{background:#c79855;border-color:#c79855;color:#453321;}
+.btn-secondary{background:#8f7a67;border-color:#8f7a67;}
+.btn-info{background:#b9956f;border-color:#b9956f;color:#fff;}
+.btn-outline-primary{color:#7c5a3d;border-color:#9e7653;}
+.btn-outline-primary:hover{background:#8b6648;border-color:#8b6648;color:#fff;}
+.btn-outline-secondary{color:#6f5c4b;border-color:#9d8a77;}
+.btn-outline-light:hover{color:#5f4936;}
+
+/* Badge */
+.badge.bg-primary{background:#8b6648!important;}
+.badge.bg-success{background:#718265!important;}
+.badge.bg-danger{background:#a96658!important;}
+.badge.bg-warning{background:#d7aa66!important;color:#453321!important;}
+.badge.bg-secondary{background:#8f7a67!important;}
+.badge.bg-info{background:#b9956f!important;color:#fff!important;}
+.badge.bg-dark{background:#5f4936!important;}
+
+/* Alert */
+.alert-info{background:#eee2d2;border-color:#dcc7ac;color:#654f3b;}
+.alert-success{background:#e4eadf;border-color:#bdcbb3;color:#4f6248;}
+.alert-warning{background:#f3e4c8;border-color:#dfc18c;color:#6c522e;}
+.alert-danger{background:#f0ded9;border-color:#d5aaa0;color:#79483f;}
+
+/* 金額與狀態 */
+.pos-money,.menu-item-price,.status-paid,.status-available{color:#65785b!important;}
+.status-open{color:#8b6648!important;}
+.status-cancelled,.status-occupied{color:#a45f52!important;}
+.order-card.selected{border-color:#9d7451!important;box-shadow:0 0 0 2px rgba(157,116,81,.12);}
+
+.table-button.available{background:rgba(255,252,247,.92);border-color:#718265;color:#66775b;}
+.table-button.occupied{background:#a96658;border-color:#a96658;color:#fff;}
+.table-button:hover,.menu-item-card:hover,.order-card:hover{filter:none;box-shadow:0 6px 16px rgba(94,66,41,.14);}
+
+/* Modal */
+.modal-content{background:#fffaf3;border:1px solid #d6c1a6;box-shadow:0 10px 30px rgba(77,52,31,.18);}
+
+/* 捲軸 */
+::-webkit-scrollbar-track{background:#efe4d5;}
+::-webkit-scrollbar-thumb{background:#b89a7a;}
+::-webkit-scrollbar-thumb:hover{background:#9c7b5b;}
+
+/* Login 常見卡片外觀也統一 */
+.login-page,.login-container{background:transparent!important;}
+
+@media(max-width:767.98px){
+    body{background-attachment:scroll!important;background-position:center top!important;}
+    .container-fluid.px-4.mt-3.mb-5{background:rgba(248,242,233,.42);}
+}
